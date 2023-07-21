@@ -66,6 +66,13 @@ app.use('/api/v1', product);
 app.use('/api/v1', payment);
 app.use('/api/v1', order);
 app.use('/api/v1', cart);
+app.use('*', (req, res) => {
+	res.status(404).json({
+		message: "Route Not Found",
+		success: false,
+		code: 404
+	})
+});
 // swagger docs route
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
