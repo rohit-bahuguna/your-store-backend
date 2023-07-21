@@ -17,7 +17,7 @@ const app = express();
 // setting template engine
 
 app.set('view engine', 'ejs');
-app.use('css', express.static(__dirname + 'public/css'));
+
 // app.use(express.static('public'));
 // importing  all routers here
 const home = require('./routers/home');
@@ -60,7 +60,7 @@ app.use(
 );
 
 //using router middleware here
-app.use('/api/v1', home);
+app.use('/', home);
 app.use('/api/v1', user);
 app.use('/api/v1', product);
 app.use('/api/v1', payment);
